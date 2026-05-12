@@ -5,21 +5,25 @@ SKILLS_TARGET="$HOME/.claude/skills"
 CLAUDE_TARGET="$HOME/.claude/CLAUDE.md"
 
 if [ -L "$SKILLS_TARGET" ]; then
-  echo "Symlink already exists at $SKILLS_TARGET"
+  echo "Symlink already exists at $SKILLS_TARGET — skipping"
 elif [ -d "$SKILLS_TARGET" ]; then
   echo "Directory exists at $SKILLS_TARGET — backing up to ${SKILLS_TARGET}.bak"
   mv "$SKILLS_TARGET" "${SKILLS_TARGET}.bak"
+  ln -s "$REPO_DIR/skills" "$SKILLS_TARGET"
+  echo "Linked $SKILLS_TARGET -> $REPO_DIR/skills"
+else
+  ln -s "$REPO_DIR/skills" "$SKILLS_TARGET"
+  echo "Linked $SKILLS_TARGET -> $REPO_DIR/skills"
 fi
 
-ln -s "$REPO_DIR/skills" "$SKILLS_TARGET"
-echo "Linked $SKILLS_TARGET -> $REPO_DIR/skills"
-
 if [ -L "$CLAUDE_TARGET" ]; then
-  echo "Symlink already exists at $CLAUDE_TARGET"
+  echo "Symlink already exists at $CLAUDE_TARGET — skipping"
 elif [ -f "$CLAUDE_TARGET" ]; then
   echo "File exists at $CLAUDE_TARGET — backing up to ${CLAUDE_TARGET}.bak"
   mv "$CLAUDE_TARGET" "${CLAUDE_TARGET}.bak"
+  ln -s "$REPO_DIR/config/CLAUDE.md" "$CLAUDE_TARGET"
+  echo "Linked $CLAUDE_TARGET -> $REPO_DIR/config/CLAUDE.md"
+else
+  ln -s "$REPO_DIR/config/CLAUDE.md" "$CLAUDE_TARGET"
+  echo "Linked $CLAUDE_TARGET -> $REPO_DIR/config/CLAUDE.md"
 fi
-
-ln -s "$REPO_DIR/config/CLAUDE.md" "$CLAUDE_TARGET"
-echo "Linked $CLAUDE_TARGET -> $REPO_DIR/config/CLAUDE.md"
