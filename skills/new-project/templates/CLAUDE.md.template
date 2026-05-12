@@ -1,0 +1,99 @@
+# [Your App Name] — Claude Code Operating Manual
+
+## Stack
+
+- Frontend: [e.g. React + TypeScript]
+
+- Backend: [e.g. Node.js + Zoho Catalyst]
+
+- Database: [e.g. Catalyst Data Store / PostgreSQL]
+
+- Hosting: [e.g. Zoho Catalyst / Vercel]
+
+## Skills — what's available and when to use each
+
+### Your custom skills (in .claude/skills/)
+
+prd-writer
+
+- Trigger: any feature definition request
+
+- Use: FIRST, before any planning or code
+
+- Saves to: docs/prd-[feature-name].md
+
+- Hands off to: /plan-eng-review or /autoplan
+
+### GStack skills (use after your skills)
+
+Planning chain (run in this order):
+
+  /office-hours      → when scope is unclear, run BEFORE prd-writer
+
+  /plan-ceo-review   → strategic check on any feature
+
+  /plan-eng-review   → architecture review, reads the PRD file
+
+  /autoplan          → generates task list, reads PRD + eng review
+
+Build chain (run in this order):
+
+  build              → Claude Code implements the approved plan
+
+  /review            → code review against PRD acceptance criteria
+
+  /cso               → security audit (auth, payments, user data only)
+
+  /qa                → browser QA, uses PRD acceptance criteria
+
+  /ship              → pre-ship checklist, opens PR
+
+Utility (run when needed):
+
+  /investigate       → root cause before any bug fix
+
+  /careful           → activate before touching prod or risky files
+
+  /retro             → every Friday, tracks shipping health
+
+  /document-release  → after major features ship
+
+## Standard chains
+
+New feature:
+
+  prd-writer → /plan-eng-review → /autoplan → build → /review → /qa → /ship
+
+New feature (scope unclear):
+
+  /office-hours → prd-writer → /plan-eng-review → /autoplan → build → /review → /qa → /ship
+
+Security-sensitive feature:
+
+  prd-writer → /plan-eng-review → /autoplan → build → /cso → /review → /qa → /ship
+
+Bug fix:
+
+  /careful → /investigate → fix → /review → /ship
+
+## File conventions
+
+- PRDs:        docs/prd-[feature-name].md
+
+- ADRs:        docs/adr-[decision-name].md  (when you add that skill)
+
+- Retros:      docs/retro-[date].md
+
+## Rules Claude must follow in this repo
+
+1. Always read the relevant PRD file before reviewing or planning
+
+2. Never start building without an approved plan from /autoplan
+
+3. Always run /investigate before fixing any bug
+
+4. Always run /careful before touching files in /infra or /migrations
+
+5. New skills go in .claude/skills/[skill-name]/SKILL.md and get
+
+   registered in this file under "Your custom skills"
