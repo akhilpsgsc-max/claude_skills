@@ -20,7 +20,26 @@ chmod +x install.sh && ./install.sh
 Same three commands above. All skills are live immediately after `./install.sh`.
 
 ### Adding a new skill
-1. Create `skills/<skill-name>/SKILL.md` in this repo
+1. Create `skills/<skill-name>/SKILL.md` in this repo with this structure:
+
+```markdown
+--- name: <skill-name> description: <one or two sentences — this is what Claude reads to decide whether to trigger the skill. Be specific about phrases and task types that should activate it.> ---
+
+# <Skill title>
+
+## What this skill does
+<one paragraph>
+
+## Preconditions — ask if missing
+<list of info Claude must have before acting. If missing, Claude asks — never guesses.>
+
+## <Section 1>
+...
+
+## <Section N>
+...
+```
+
 2. `git add . && git commit && git push`
 
 Because `~/.claude/skills` is symlinked to this repo, the skill is available to Claude Code the moment the file exists on disk — no copy needed.
