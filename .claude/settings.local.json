@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv python *)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//opt/homebrew/Cellar/node/25.9.0_2/bin/**)",
+      "Bash(/opt/homebrew/bin/python3.12 -m pip install anthropic)",
+      "Bash(/opt/homebrew/bin/uv venv *)",
+      "Bash(/opt/homebrew/bin/uv pip *)",
+      "Bash(catalyst config:get org_id)",
+      "Bash(catalyst config:get project_id)",
+      "Bash(catalyst help *)",
+      "Bash(catalyst ds:export developers)",
+      "Bash(catalyst ds:export --help)",
+      "Bash(catalyst project:use)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://cadence-855563177.development.catalyst.zoho.com/server/cadence_function/api/developers\")",
+      "Bash(nslookup cadence-855563177.development.catalyst.zoho.com)",
+      "Bash(catalyst function *)",
+      "Bash(catalyst deploy *)",
+      "Bash(curl -v \"https://cadence-855563177.development.catalyst.zoho.com/server/cadence_function/api/developers\")",
+      "Bash(catalyst serve *)",
+      "Bash(curl -s http://localhost:3000/api/developers)",
+      "Bash(curl -s -X DELETE \"https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/reset\")",
+      "Bash(curl -s \"https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/projects\")",
+      "Bash(curl -s \"https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/dashboard?yr=2026&mon=5\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s -X POST https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/projects -H 'Content-Type: application/json' -d '{\"name\":\"Test\",\"client\":\"BSP\",\"size\":\"Medium\",\"status\":\"En cours\",\"delivery_date\":\"\"}')",
+      "Bash(curl -s -X POST https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/users -H 'Content-Type: application/json' -d '{\"pm_name\":\"Test PM\",\"role\":\"pm\",\"email\":\"test@bspcorp.co\"}')",
+      "Bash(curl -s \"https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/users?role=pm\")",
+      "Bash(curl -s -I -X OPTIONS https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/hours/123 -H 'Origin: https://cadence-app-vjqjxwlk.onslate.com' -H 'Access-Control-Request-Method: PUT' -H 'Access-Control-Request-Headers: Content-Type')",
+      "Bash(curl -s -I https://cadence-855563177.development.catalystserverless.com/server/cadence_function/api/projects -H 'Origin: https://cadence-app-vjqjxwlk.onslate.com')",
+      "Bash(find /Users/akhilprabhakaran/Documents/Projects -name \"*PM*\" -o -name \"*Bouchra*\" 2>/dev/null | head -20)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(xargs -I{} sh -c 'git show {}:static/pm.html 2>/dev/null | grep -m1 \"max-width\" | grep -q \"1000\" && echo {}')"
+    ]
+  }
+}

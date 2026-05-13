@@ -97,3 +97,20 @@ Bug fix:
 5. New skills go in .claude/skills/[skill-name]/SKILL.md and get
 
    registered in this file under "Your custom skills"
+
+## Core workflows
+
+New project:
+  "new project" → new-project skill → CLAUDE.md created and committed
+
+New feature:
+  prd-writer → /plan-eng-review → /autoplan → build → /review → /qa → /ship
+
+Unclear scope:
+  /office-hours → prd-writer → /plan-eng-review → /autoplan → build → /review → /qa → /ship
+
+Security-sensitive:
+  prd-writer → /plan-eng-review → /autoplan → build → /cso → /review → /qa → /ship
+
+Bug fix:
+  /careful → /investigate → fix → /review → /deploy-checklist
